@@ -1,28 +1,35 @@
 <template>
-  <h1>Joe Israel</h1>
+  <Header name="Joe Israel" />
+  <Skills />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import Header from './components/Header.vue';
+import Skills from './components/Skills.vue';
 
 export default defineComponent({
   name: 'App',
-  components: {},
+  components: { Header, Skills },
 });
 </script>
 
 <style>
-body {
-  margin: 0 auto;
+* {
+  box-sizing: border-box;
 }
 
-#app {
+body {
+  margin: 0 auto;
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
+  color: #1b2720;
+}
+
+#app {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100vw;
 }
 </style>
