@@ -1,9 +1,43 @@
 <template>
-  <div id="skills">
-    <transition name="fade" appear>
-      <h2>This is what I'm good at</h2>
-    </transition>
-  </div>
+  <section id="skills" class="skills bg-primary">
+    <div class="container grid">
+      <div class="skills-text">
+        <h1 class="t-lg">Honed Skills</h1>
+        <p class="my-2">This is the set of skills that I've been improving for the last few years. Languages, frameworks, programs and more.</p>
+        <a href="#" class="btn btn-outline">See in detail</a>
+      </div>
+      <div class="skills-list grid my-2 t-center">
+        <div class="card flex">
+          <img src="@/assets/images/vue.png" alt="Vue 3" />
+          <h4>Vue 3</h4>
+        </div>
+        <div class="card flex">
+          <img src="@/assets/images/node.png" alt="Node JS" />
+          <h4>Node JS</h4>
+        </div>
+        <div class="card flex">
+          <img src="@/assets/images/javascript.png" alt="JavaScript" />
+          <h4>JavaScript</h4>
+        </div>
+        <div class="card flex">
+          <img src="@/assets/images/typescript.png" alt="TypeScript" />
+          <h4>TypeScript</h4>
+        </div>
+        <div class="card flex">
+          <img src="@/assets/images/html.png" alt="HTML 5" />
+          <h4>HTML5</h4>
+        </div>
+        <div class="card flex">
+          <img src="@/assets/images/css.png" alt="CSS 3" />
+          <h4>CSS3</h4>
+        </div>
+        <div class="card flex">
+          <img src="@/assets/images/csharp.png" alt="CSharp" />
+          <h4>CSharp</h4>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -11,42 +45,80 @@ import { defineComponent } from 'vue';
 export default defineComponent({});
 </script>
 
-<style>
-#skills {
-  margin: 0 auto;
-  width: 100%;
-  padding: 3em;
-  background-color: #39b673;
-}
-#skills h2 {
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+<style scoped>
+.skills {
+  position: relative;
 }
 
-#skills p {
-  margin: 0;
+.skills .skills-list {
+  z-index: 100;
 }
 
-#skills .name {
-  color: #39b673;
+.skills .skills-list .card {
+  transition: transform 0.2s ease;
 }
 
-#skills .fade-enter-active,
-#skills .fade-leave-active {
-  transition: opacity 1s ease;
-}
-#skills .fade-enter-from,
-#skills .fade-leave-to {
-  opacity: 0;
+.skills .skills-list .card:hover {
+  transform: translateY(-4px);
 }
 
-@media only screen and (min-width: 600px) {
-  #skills h1 {
-    display: inline-flex;
-    flex-direction: row;
+.skills .skills-list .card.flex {
+  justify-content: left;
+}
+
+.skills::before,
+.skills::after {
+  content: '';
+  position: absolute;
+  height: 5rem;
+  bottom: -2rem;
+  right: 0;
+  left: 0;
+  background-color: var(--light-color);
+  transform: skewY(-2deg);
+  -webkit-transform: skewY(-2deg);
+  -moz-transform: skewY(-2deg);
+  -ms-transform: skewY(-2deg);
+}
+
+.skills .skills-list .card.flex img {
+  display: block;
+  width: 64px;
+  margin: 0 1rem 0 0;
+}
+
+.skills .skills-list .card.flex h3 {
+  display: block;
+}
+
+/* TABLETS AND UNDER */
+@media (max-width: 992px) {
+  .skills .skills-list.grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills .skills-list.grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*FOR SMARTPHONES ONLY */
+@media (max-width: 600px) {
+  .skills .skills-list.grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills .skills-list .card.flex {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .skills .skills-list .card.flex img {
+    display: block;
+    width: 64px;
+    margin: 1rem 0;
   }
 }
 </style>

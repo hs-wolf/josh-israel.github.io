@@ -1,0 +1,298 @@
+.container {
+  max-width: var(--max-width-lg);
+  margin: 0 auto;
+  overflow: auto;
+  padding: 4rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: auto;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background-color: var(--light-color);
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 0px 8px rgb(0, 0, 0, 0.25);
+  padding: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  cursor: pointer;
+  background: var(--primary-color);
+  color: var(--light-text);
+  border: none;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(0.95);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px var(--light-color) solid;
+}
+
+/* TABLETS AND UNDER */
+@media (max-width: 992px) {
+  .container {
+    max-width: var(--max-width-md);
+    padding: 3rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+}
+
+/* SMARTPHONES AND UNDER */
+@media (max-width: 600px) {
+  .container {
+    max-width: var(--max-width-sm);
+    padding: 2rem;
+  }
+}
+
+/*#region BACKGROUNDS & COLORED BUTTONS */
+.bg-primary,
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+}
+
+.bg-secondary,
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--light-text);
+}
+
+.bg-light,
+.btn-light {
+  background-color: var(--light-color);
+  color: var(--dark-text);
+}
+
+.bg-dark,
+.btn-dark {
+  background-color: var(--dark-color);
+  color: var(--light-text);
+}
+/*#endregion BACKKGROUNDS & COLORED BUTTONS */
+
+/*#region TEXT SIZES, ALIGNMENTS & COLORS */
+
+.t-lead {
+  font-size: 1.25rem;
+}
+
+.t-sm {
+  font-size: 1rem;
+}
+
+.t-md {
+  font-size: 2rem;
+}
+
+.t-lg {
+  font-size: 3rem;
+}
+
+.t-xl {
+  font-size: 4rem;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.t-left {
+  text-align: left;
+}
+
+.t-right {
+  text-align: right;
+}
+
+.t-primary {
+  color: var(--primary-text);
+}
+
+.t-secondary {
+  color: var(--secondary-text);
+}
+
+.t-light {
+  color: var(--light-text);
+}
+
+.t-dark {
+  color: var(--dark-text);
+}
+/*#endregion TEXT SIZES & ALIGNMENTS */
+
+/*#region MARGINS */
+.m-1 {
+  margin: 1rem;
+}
+
+.m-2 {
+  margin: 1.5rem;
+}
+
+.m-3 {
+  margin: 2rem;
+}
+
+.m-4 {
+  margin: 3rem;
+}
+
+.m-5 {
+  margin: 4rem;
+}
+
+.my-1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.my-2 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.my-3 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.my-4 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.my-5 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.mx-1 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.mx-2 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.mx-3 {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.mx-4 {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.mx-5 {
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+/*#endregion MARGINS */
+
+/*#region PADDINGS */
+.p-1 {
+  padding: 1rem;
+}
+
+.p-2 {
+  padding: 1.5rem;
+}
+
+.p-3 {
+  padding: 2rem;
+}
+
+.p-4 {
+  padding: 3rem;
+}
+
+.p-5 {
+  padding: 4rem;
+}
+
+.py-1 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.py-2 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.py-3 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.py-4 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.py-5 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.px-1 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.px-2 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.px-3 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.px-4 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.px-5 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+/*#endregion PADDINGS */
