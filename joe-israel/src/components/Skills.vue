@@ -50,6 +50,10 @@ export default defineComponent({});
   position: relative;
 }
 
+.skills .container.grid {
+  gap: 2rem;
+}
+
 .skills .skills-list {
   z-index: 100;
 }
@@ -98,13 +102,14 @@ export default defineComponent({});
   }
 }
 
+/* SMALL TABLETS AND UNDER */
 @media (max-width: 768px) {
   .skills .skills-list.grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/*FOR SMARTPHONES ONLY */
+/* SMARTPHONES AND UNDER */
 @media (max-width: 600px) {
   .skills .skills-list.grid {
     grid-template-columns: repeat(2, 1fr);

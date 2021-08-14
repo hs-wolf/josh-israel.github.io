@@ -11,16 +11,17 @@
         I'm a Junior Web Developer.<br />
         Tenacious, curious and always craving for new work experiences.
       </p>
-    </div>
-    <div class="indicator flex my-1">
-      <font-awesome-icon :icon="['fas', 'mouse']" size="2x" />
-      <p class="p-1">Scroll Down</p>
+      <div class="indicator flex my-1">
+        <font-awesome-icon :icon="['fas', 'mouse']" size="2x" />
+        <p class="p-1">Scroll Down</p>
+      </div>
     </div>
   </header>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+
 export default defineComponent({
   props: {
     name: {
@@ -28,17 +29,19 @@ export default defineComponent({
       type: String,
     },
   },
+  methods: {},
 });
 </script>
 
 <style scoped>
 header {
-  height: 100vh;
+  min-height: 100vh;
   background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('../assets/images/circuit.jpg');
   background-size: 100%;
+  position: relative;
 }
 
-header .flex {
+header .container.flex {
   flex-direction: column;
 }
 
@@ -54,7 +57,7 @@ header img {
 
 header .indicator {
   position: absolute;
-  bottom: 0;
+  bottom: 3rem;
 }
 
 header .indicator.flex {

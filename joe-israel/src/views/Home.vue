@@ -3,7 +3,6 @@
   <Navbar :links="links" />
   <Skills />
   <Projects />
-  <Skills2 />
   <Qualifications />
 </template>
 
@@ -11,8 +10,8 @@
 import { defineComponent, ref } from 'vue';
 import Header from '../components/Header.vue';
 import Navbar from '../components/Navbar.vue';
-import Skills2 from '../components/Skills2.vue';
 import Skills from '../components/Skills.vue';
+
 import Projects from '../components/Projects.vue';
 import Qualifications from '../components/Qualifications.vue';
 
@@ -20,7 +19,7 @@ import INavbarLink from '@/types/NavbarLink';
 
 export default defineComponent({
   name: 'App',
-  components: { Header, Navbar, Skills, Skills2, Projects, Qualifications },
+  components: { Header, Navbar, Skills, Projects, Qualifications },
   setup() {
     const name = '<Joe>';
     const links = ref<INavbarLink[]>([
@@ -61,4 +60,4 @@ export default defineComponent({
 });
 </script>
 
-<style></style>
+<style scoped></style>

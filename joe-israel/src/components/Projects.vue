@@ -1,67 +1,80 @@
 <template>
-  <section class="cli">
-    <div class="container grid">
-      <img src="@/assets/images/cli.png" alt="CLI" />
-      <div class="card">
-        <h3>Cross platform CLI</h3>
-      </div>
-      <div class="card">
-        <h3>Deploy in seconds</h3>
-      </div>
-    </div>
-  </section>
-
-  <section class="cloud bg-primary my-2 py-2">
-    <div class="container grid">
-      <div class="text-center">
-        <h2 class="lg">Extreme Cloud Hosting</h2>
-        <p class="t-lead my-1">Cloud Hosting like you've never seen. Fast, efficient and scalable.</p>
-        <a href="#" class="btn btn-dark">Read More</a>
-      </div>
-      <img src="@/assets/images/cloud.png" alt="Cloud" />
+  <section class="projects bg-light">
+    <div class="container flex">
+      <h1 class="t-lg">Most Recent Projects</h1>
+      <p class="t-lead my-2">Check out my latest works, you can click on them to see more details.</p>
+      <Carousel
+        @nextSlide="nextSlide"
+        @previousSlide="previousSlide"
+        :slides="slides"
+        :visibleSlide="visibleSlide"
+        :direction="direction"
+      />
+      <p class="t-md my-2">Want to see more?</p>
+      <div class="btn btn-dark my-2">See All Projects</div>
     </div>
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-export default defineComponent({});
+import Carousel from './Carousel.vue';
+
+import ICarouselSlide from '@/types/CarouselSlide';
+
+export default defineComponent({
+  name: 'Projects',
+  components: { Carousel },
+  data() {
+    const slides: ICarouselSlide[] = [
+      { id: '1', path: 'https://picsum.photos/seed/picsum/600/350' },
+      { id: '2', path: 'https://picsum.photos/seed/picsum1/600/350' },
+      { id: '3', path: 'https://picsum.photos/seed/picsum2/600/350' },
+      { id: '4', path: 'https://picsum.photos/seed/picsum3/600/350' },
+      { id: '5', path: 'https://picsum.photos/seed/picsum4/600/350' },
+    ];
+    const visibleSlide = 0;
+    let direction = '';
+
+    return { slides, visibleSlide, direction };
+  },
+  computed: {
+    slidesLength(): number {
+      return this.slides.length;
+    },
+  },
+  methods: {
+    previousSlide() {
+      if (this.visibleSlide <= 0) {
+        this.visibleSlide = this.slidesLength - 1;
+      } else {
+        this.visibleSlide -= 1;
+      }
+      this.direction = 'left';
+    },
+    nextSlide() {
+      if (this.visibleSlide >= this.slidesLength - 1) {
+        this.visibleSlide = 0;
+      } else {
+        this.visibleSlide += 1;
+      }
+      this.direction = 'right';
+      console.log(this.direction);
+    },
+  },
+});
 </script>
 
-<style>
-/*#region CLI */
-.cli .grid {
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+<style scoped>
+.projects .flex {
+  flex-direction: column;
 }
 
-.cli .grid > *:first-child {
-  grid-column: 1 / span 2;
-  grid-row: 1 / span 2;
-}
-/*#endregion CLI */
-
-/*#region CLOUD */
-.cloud .grid {
-  grid-template-columns: 4fr 3fr;
-}
-/*#endregion CLOUD */
-
-/* FOR TABLETS AND SMARTPHONES */
-@media (max-width: 768px) {
-  .cli .grid,
-  .cloud .grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-  }
-
-  .cli .grid > *:first-child {
-    grid-column: 1;
-    grid-row: 1;
-  }
+/* TABLETS AND UNDER */
+@media (max-width: 992px) {
 }
 
-/*FOR SMARTPHONES ONLY */
-@media (max-width: 500px) {
+/* SMARTPHONES AND UNDER */
+@media (max-width: 600px) {
 }
 </style>
