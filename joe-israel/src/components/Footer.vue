@@ -1,15 +1,16 @@
 <template>
-  <footer class="footer bg-dark py-5">
-    <div class="container grid grid-3">
+  <footer class="footer bg-dark">
+    <div class="container flex py-5">
       <div>
         <h1>Joe/José Israel</h1>
         <p>Copyright © 2021</p>
       </div>
 
-      <div class="social text-center">
-        <a href="#"><font-awesome-icon :icon="['fab', 'linkedin']" size="2x" /></a>
-        <a href="#"><font-awesome-icon :icon="['fab', 'github']" size="2x" /></a>
-        <a href="#"><font-awesome-icon :icon="['fab', 'stack-overflow']" size="2x" /></a>
+      <div class="social flex text-center">
+        <a href="#" title="LinkedIn"><font-awesome-icon :icon="['fab', 'linkedin']" size="3x" /></a>
+        <a href="#" title="GitHub"><font-awesome-icon :icon="['fab', 'github']" size="3x" /></a>
+        <a href="#" title="Stack Overflow"><font-awesome-icon :icon="['fab', 'stack-overflow']" size="3x" /></a>
+        <a href="#" title="Curriculum Vitae"><font-awesome-icon :icon="['fas', 'file-download']" size="3x" /></a>
       </div>
     </div>
   </footer>
@@ -25,15 +26,30 @@ export default defineComponent({});
   color: var(--light-text);
 }
 
+.container.flex {
+  justify-content: space-between;
+}
+
+.footer .social.flex {
+  width: auto;
+}
+
 .footer .social a {
-  margin: 0 10px;
+  margin: 0 1rem;
 }
 
-/* FOR TABLETS AND SMARTPHONES */
-@media (max-width: 768px) {
+/* TABLETS AND UNDER */
+@media (max-width: 992px) {
 }
 
-/*FOR SMARTPHONES ONLY */
-@media (max-width: 500px) {
+/* SMARTPHONES AND UNDER */
+@media (max-width: 600px) {
+  .container.flex {
+    flex-direction: column;
+  }
+
+  .footer .social {
+    margin-top: 3rem;
+  }
 }
 </style>

@@ -3,8 +3,10 @@
     <div class="container grid">
       <div class="skills-text">
         <h1 class="t-lg">Honed Skills</h1>
-        <p class="my-2">This is the set of skills that I've been improving for the last few years. Languages, frameworks, programs and more.</p>
-        <a href="#" class="btn btn-outline">See in detail</a>
+        <p class="my-2">
+          This is the set of skills that I've been improving for the last few years. Languages, frameworks, programs and more.
+        </p>
+        <a href="#" class="btn btn-outline">See all Skills</a>
       </div>
       <div class="skills-list grid my-2 t-center">
         <div class="card flex">
@@ -35,6 +37,10 @@
           <img src="@/assets/images/csharp.png" alt="CSharp" />
           <h4>CSharp</h4>
         </div>
+        <div class="card flex">
+          <img src="@/assets/images/team.png" alt="CSharp" />
+          <h4>Team Work</h4>
+        </div>
       </div>
     </div>
   </section>
@@ -55,7 +61,7 @@ export default defineComponent({});
 }
 
 .skills .skills-list {
-  z-index: 100;
+  z-index: 1;
 }
 
 .skills .skills-list .card {
@@ -79,10 +85,10 @@ export default defineComponent({});
   right: 0;
   left: 0;
   background-color: var(--light-color);
-  transform: skewY(-2deg);
-  -webkit-transform: skewY(-2deg);
-  -moz-transform: skewY(-2deg);
-  -ms-transform: skewY(-2deg);
+  transform: skewY(2deg);
+  -webkit-transform: skewY(2deg);
+  -moz-transform: skewY(2deg);
+  -ms-transform: skewY(2deg);
 }
 
 .skills .skills-list .card.flex img {
@@ -97,16 +103,6 @@ export default defineComponent({});
 
 /* TABLETS AND UNDER */
 @media (max-width: 992px) {
-  .skills .skills-list.grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* SMALL TABLETS AND UNDER */
-@media (max-width: 768px) {
-  .skills .skills-list.grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 /* SMARTPHONES AND UNDER */
@@ -115,7 +111,7 @@ export default defineComponent({});
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .skills .skills-list .card.flex {
+  .skills .skills-list .card {
     flex-direction: column;
     justify-content: center;
   }
@@ -123,7 +119,7 @@ export default defineComponent({});
   .skills .skills-list .card.flex img {
     display: block;
     width: 64px;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
   }
 }
 </style>

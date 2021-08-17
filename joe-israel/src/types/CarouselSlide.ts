@@ -1,6 +1,8 @@
 interface ICarouselSlide {
   id: String;
-  path: String;
+  title: String;
+  description: String;
+  img: String;
 }
 
 export default ICarouselSlide;

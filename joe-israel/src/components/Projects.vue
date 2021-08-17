@@ -1,17 +1,11 @@
 <template>
-  <section class="projects bg-light">
-    <div class="container flex">
-      <h1 class="t-lg">Most Recent Projects</h1>
-      <p class="t-lead my-2">Check out my latest works, you can click on them to see more details.</p>
-      <Carousel
-        @nextSlide="nextSlide"
-        @previousSlide="previousSlide"
-        :slides="slides"
-        :visibleSlide="visibleSlide"
-        :direction="direction"
-      />
-      <p class="t-md my-2">Want to see more?</p>
-      <div class="btn btn-dark my-2">See All Projects</div>
+  <section id="projects" class="projects bg-light">
+    <div class="container flex t-center">
+      <h1 class="t-lg">Recent Projects</h1>
+      <p class="t-lead my-2">Check out my latest works.</p>
+      <Carousel :slides="slides" />
+      <p class="t-lead my-2">Want to see more?</p>
+      <div class="btn btn-dark my-1 t-lead">See All Projects</div>
     </div>
   </section>
 </template>
@@ -27,40 +21,44 @@ export default defineComponent({
   components: { Carousel },
   data() {
     const slides: ICarouselSlide[] = [
-      { id: '1', path: 'https://picsum.photos/seed/picsum/600/350' },
-      { id: '2', path: 'https://picsum.photos/seed/picsum1/600/350' },
-      { id: '3', path: 'https://picsum.photos/seed/picsum2/600/350' },
-      { id: '4', path: 'https://picsum.photos/seed/picsum3/600/350' },
-      { id: '5', path: 'https://picsum.photos/seed/picsum4/600/350' },
+      {
+        id: '1',
+        title: 'Taverna Central',
+        description:
+          'Tavernan Central - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur, cum praesentium! Ipsum quibusdam labore vero, sunt recusandae voluptate quisquam veritatis.',
+        img: 'https://picsum.photos/seed/picsum/600/350',
+      },
+      {
+        id: '2',
+        title: 'Fadinha',
+        description:
+          'Fadinha - Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique iusto saepe hic cum explicabo? Natus at praesentium voluptates ab tenetur?',
+        img: 'https://picsum.photos/seed/picsum1/600/350',
+      },
+      {
+        id: '3',
+        title: 'UManga',
+        description:
+          'UManga - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam magni nemo labore deserunt sit assumenda eius consequatur suscipit earum maxime!',
+        img: 'https://picsum.photos/seed/picsum2/600/350',
+      },
+      {
+        id: '4',
+        title: 'Crypto',
+        description:
+          'Crypto - Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt aut dolor omnis distinctio temporibus numquam tempore voluptatem dignissimos magnam esse.',
+        img: 'https://picsum.photos/seed/picsum3/600/350',
+      },
+      {
+        id: '5',
+        title: 'Magic Field',
+        description:
+          ' Magic Field - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias fugit ipsum quas iure nihil deleniti, molestias expedita dolorum quis omnis.',
+        img: 'https://picsum.photos/seed/picsum4/600/350',
+      },
     ];
-    const visibleSlide = 0;
-    let direction = '';
 
-    return { slides, visibleSlide, direction };
-  },
-  computed: {
-    slidesLength(): number {
-      return this.slides.length;
-    },
-  },
-  methods: {
-    previousSlide() {
-      if (this.visibleSlide <= 0) {
-        this.visibleSlide = this.slidesLength - 1;
-      } else {
-        this.visibleSlide -= 1;
-      }
-      this.direction = 'left';
-    },
-    nextSlide() {
-      if (this.visibleSlide >= this.slidesLength - 1) {
-        this.visibleSlide = 0;
-      } else {
-        this.visibleSlide += 1;
-      }
-      this.direction = 'right';
-      console.log(this.direction);
-    },
+    return { slides };
   },
 });
 </script>

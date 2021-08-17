@@ -11,7 +11,13 @@
         I'm a Junior Web Developer.<br />
         Tenacious, curious and always craving for new work experiences.
       </p>
-      <div class="indicator flex my-1">
+      <div class="social flex my-4">
+        <a href="#" title="LinkedIn"><font-awesome-icon :icon="['fab', 'linkedin']" size="3x" /></a>
+        <a href="#" title="GitHub"><font-awesome-icon :icon="['fab', 'github']" size="3x" /></a>
+        <a href="#" title="Stack Overflow"><font-awesome-icon :icon="['fab', 'stack-overflow']" size="3x" /></a>
+        <a href="#" title="Curriculum Vitae"><font-awesome-icon :icon="['fas', 'file-download']" size="3x" /></a>
+      </div>
+      <div class="indicator p-2 flex">
         <font-awesome-icon :icon="['fas', 'mouse']" size="2x" />
         <p class="p-1">Scroll Down</p>
       </div>
@@ -55,9 +61,18 @@ header img {
   box-shadow: 0 0px 8px rgb(0, 0, 0, 0.25);
 }
 
-header .indicator {
-  position: absolute;
-  bottom: 3rem;
+header .social {
+  height: 4rem;
+  opacity: 0.4;
+}
+
+header .social a {
+  margin: 0 1rem;
+  transition: font-size 0.2s ease;
+}
+
+header .social a:hover {
+  font-size: 1.1rem;
 }
 
 header .indicator.flex {

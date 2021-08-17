@@ -20,7 +20,6 @@
   align-items: center;
   gap: 1rem;
   width: 100%;
-  height: auto;
 }
 
 .grid-3 {
@@ -37,7 +36,7 @@
 
 .btn {
   display: inline-block;
-  padding: 10px 30px;
+  padding: 1rem 2rem;
   cursor: pointer;
   background: var(--primary-color);
   color: var(--light-text);
@@ -60,11 +59,6 @@
   .container {
     max-width: var(--max-width-md);
     padding: 3rem;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
   }
 }
 
