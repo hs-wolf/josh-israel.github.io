@@ -7,10 +7,16 @@
       </div>
 
       <div class="social flex text-center">
-        <a href="#" title="LinkedIn"><font-awesome-icon :icon="['fab', 'linkedin']" size="3x" /></a>
-        <a href="#" title="GitHub"><font-awesome-icon :icon="['fab', 'github']" size="3x" /></a>
-        <a href="#" title="Stack Overflow"><font-awesome-icon :icon="['fab', 'stack-overflow']" size="3x" /></a>
-        <a href="#" title="Curriculum Vitae"><font-awesome-icon :icon="['fas', 'file-download']" size="3x" /></a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          v-for="social in socials"
+          :key="social.id"
+          :href="social.link"
+          :title="social.title"
+          :download="social.id === '4' ? 'jose-israel-cv' : null"
+          ><font-awesome-icon :icon="[social.icon[0], social.icon[1]]" size="2x"
+        /></a>
       </div>
     </div>
   </footer>
@@ -18,7 +24,43 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-export default defineComponent({});
+
+import ISocials from '@/types/Socials';
+
+export default defineComponent({
+  name: 'Footer',
+  setup() {
+    const publicPath: string = process.env.NODE_ENV === 'production' ? '/' : '/';
+    const socials: ISocials[] = [
+      {
+        id: '1',
+        link: 'https://www.linkedin.com/in/unobraid/',
+        title: 'LinkedIn',
+        icon: ['fab', 'linkedin'],
+      },
+      {
+        id: '2',
+        link: 'https://github.com/joe-israel',
+        title: 'GitHub',
+        icon: ['fab', 'github'],
+      },
+      {
+        id: '3',
+        link: 'https://stackoverflow.com/users/14956131/unobraid',
+        title: 'Stack Overflow',
+        icon: ['fab', 'stack-overflow'],
+      },
+      {
+        id: '4',
+        link: `${publicPath}jose-israel-cv.pdf`,
+        title: 'Curriculum Vitae',
+        icon: ['fas', 'file-download'],
+      },
+    ];
+
+    return { socials };
+  },
+});
 </script>
 
 <style>

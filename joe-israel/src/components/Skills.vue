@@ -1,45 +1,16 @@
 <template>
   <section id="skills" class="skills bg-primary">
-    <div class="container grid">
+    <div class="container flex">
       <div class="skills-text">
         <h1 class="t-lg">Honed Skills</h1>
         <p class="my-2">
           This is the set of skills that I've been improving for the last few years. Languages, frameworks, programs and more.
         </p>
-        <a href="#" class="btn btn-outline">See all Skills</a>
       </div>
-      <div class="skills-list grid my-2 t-center">
-        <div class="card flex">
-          <img src="@/assets/images/vue.png" alt="Vue 3" />
-          <h4>Vue 3</h4>
-        </div>
-        <div class="card flex">
-          <img src="@/assets/images/node.png" alt="Node JS" />
-          <h4>Node JS</h4>
-        </div>
-        <div class="card flex">
-          <img src="@/assets/images/javascript.png" alt="JavaScript" />
-          <h4>JavaScript</h4>
-        </div>
-        <div class="card flex">
-          <img src="@/assets/images/typescript.png" alt="TypeScript" />
-          <h4>TypeScript</h4>
-        </div>
-        <div class="card flex">
-          <img src="@/assets/images/html.png" alt="HTML 5" />
-          <h4>HTML5</h4>
-        </div>
-        <div class="card flex">
-          <img src="@/assets/images/css.png" alt="CSS 3" />
-          <h4>CSS3</h4>
-        </div>
-        <div class="card flex">
-          <img src="@/assets/images/csharp.png" alt="CSharp" />
-          <h4>CSharp</h4>
-        </div>
-        <div class="card flex">
-          <img src="@/assets/images/team.png" alt="CSharp" />
-          <h4>Team Work</h4>
+      <div class="skills-list grid t-center">
+        <div class="card flex" v-for="skill in skills" :key="skill.id">
+          <img :src="skill.img" :alt="skill.title" />
+          <h4>{{ skill.title }}</h4>
         </div>
       </div>
     </div>
@@ -48,7 +19,58 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-export default defineComponent({});
+
+import ISkills from '@/types/Skills';
+
+export default defineComponent({
+  name: 'Skills',
+  setup() {
+    const skills: ISkills[] = [
+      {
+        id: '1',
+        title: 'Vue 3',
+        img: require('@/assets/images/vue.png'),
+      },
+      {
+        id: '2',
+        title: 'Node JS',
+        img: require('@/assets/images/node.png'),
+      },
+      {
+        id: '3',
+        title: 'JavaScript',
+        img: require('@/assets/images/javascript.png'),
+      },
+      {
+        id: '4',
+        title: 'TypeScript',
+        img: require('@/assets/images/typescript.png'),
+      },
+      {
+        id: '5',
+        title: 'HTML5',
+        img: require('@/assets/images/html.png'),
+      },
+      {
+        id: '6',
+        title: 'CSS3',
+        img: require('@/assets/images/css.png'),
+      },
+      {
+        id: '7',
+        title: 'CSharp',
+        img: require('@/assets/images/csharp.png'),
+      },
+      {
+        id: '8',
+        title: 'Team Work',
+        img: require('@/assets/images/team.png'),
+      },
+    ];
+
+    return { skills };
+  },
+});
 </script>
 
 <style scoped>
@@ -56,16 +78,21 @@ export default defineComponent({});
   position: relative;
 }
 
-.skills .container.grid {
-  gap: 2rem;
+.skills .skills-text {
+  margin-right: 2rem;
 }
 
 .skills .skills-list {
   z-index: 1;
 }
 
+.skills .skills-list.grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .skills .skills-list .card {
   transition: transform 0.2s ease;
+  overflow: hidden;
 }
 
 .skills .skills-list .card:hover {
@@ -73,7 +100,8 @@ export default defineComponent({});
 }
 
 .skills .skills-list .card.flex {
-  justify-content: left;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .skills::before,
@@ -94,15 +122,22 @@ export default defineComponent({});
 .skills .skills-list .card.flex img {
   display: block;
   width: 64px;
-  margin: 0 1rem 0 0;
+  margin: 0.5rem 0;
 }
 
-.skills .skills-list .card.flex h3 {
-  display: block;
+.skills .skills-list .card.flex h4 {
+  white-space: nowrap;
 }
 
 /* TABLETS AND UNDER */
 @media (max-width: 992px) {
+  .skills .skills-list.grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .container.flex {
+    flex-direction: column;
+  }
 }
 
 /* SMARTPHONES AND UNDER */
@@ -111,15 +146,15 @@ export default defineComponent({});
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .skills .skills-list .card {
-    flex-direction: column;
-    justify-content: center;
+  .skills .skills-list .card.flex {
+    flex-direction: row;
+    justify-content: left;
   }
 
   .skills .skills-list .card.flex img {
     display: block;
-    width: 64px;
-    margin: 0.5rem 0;
+    width: 20px;
+    margin: 0.5rem 0.3rem 0.5rem 0;
   }
 }
 </style>

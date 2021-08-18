@@ -1,5 +1,5 @@
 <template>
-  <section class="showcase">
+  <section id="qualifications" class="showcase">
     <div class="container grid">
       <div class="showcase-text">
         <h1 class="t-lg">Qualifications Tree</h1>
@@ -12,58 +12,28 @@
       </div>
       <div class="showcase-form grid card p-2" v-show="currentQualification === 0">
         <h2 class="t-md"><font-awesome-icon :icon="['fas', 'university']" size="1x" /> Education</h2>
-        <ul class="education">
-          <li class="title t-lead">High School + Technologist</li>
-          <li class="duration t-secondary"><font-awesome-icon :icon="['fas', 'calendar']" size="1x" /> From 2014 to 2017</li>
-          <li class="description">
-            <font-awesome-icon :icon="['fas', 'paperclip']" size="1x" /> Finished high school jointly with a Mechatronics
-            Technologist degree.
+        <ul class="education" v-for="education in educationList" :key="education.id">
+          <li class="title t-lead">{{ education.title }}</li>
+          <li class="duration t-secondary">
+            <font-awesome-icon :icon="['fas', 'calendar']" size="1x" /> {{ education.duration }}
           </li>
-        </ul>
-        <ul class="education">
-          <li class="title t-lead">Computer Systems Analyst College</li>
-          <li class="duration t-secondary"><font-awesome-icon :icon="['fas', 'calendar']" size="1x" /> Ongoing 2021</li>
-          <li class="description">
-            <font-awesome-icon :icon="['fas', 'paperclip']" size="1x" /> Currently stuying Computer Systems Analyses in a
-            Brazilian College. Due in 2022.
-          </li>
+          <li class="description"><font-awesome-icon :icon="['fas', 'paperclip']" size="1x" /> {{ education.description }}</li>
         </ul>
       </div>
       <div class="showcase-form grid card p-2" v-show="currentQualification === 1">
         <h2 class="t-md"><font-awesome-icon :icon="['fas', 'mouse']" size="1x" /> Courses</h2>
-        <ul class="course">
-          <li class="title t-lead">Udemy Courses</li>
-          <li class="description">
-            <font-awesome-icon :icon="['fas', 'paperclip']" size="1x" /> Finished the following courses: Git, Vue, JavaScript,
-            Unity, Blender.
-          </li>
-        </ul>
-        <ul class="course">
-          <li class="title t-lead">Web Designer</li>
-          <li class="description">
-            <font-awesome-icon :icon="['fas', 'paperclip']" size="1x" /> Web Designer course at SESC SENAI - Brazil, 2014.
-            Learned basic HTML & CSS, industry workflows, pipelines and improved my time management and team work.
-          </li>
+        <ul class="course" v-for="course in courseList" :key="course.id">
+          <li class="title t-lead">{{ course.title }}</li>
+          <li class="description"><font-awesome-icon :icon="['fas', 'paperclip']" size="1x" /> {{ course.description }}</li>
         </ul>
       </div>
       <div class="showcase-form grid card p-2" v-show="currentQualification === 2">
         <h2 class="t-md"><font-awesome-icon :icon="['fas', 'briefcase']" size="1x" /> Work</h2>
-        <ul class="work">
-          <li class="title t-lead">Akylla Transports, Inc</li>
-          <li class="duration t-secondary"><font-awesome-icon :icon="['fas', 'calendar']" size="1x" /> From 2014 to 2015</li>
-          <li class="position"><font-awesome-icon :icon="['fas', 'user-tag']" size="1x" /> Intern</li>
-          <li class="description">
-            <font-awesome-icon :icon="['fas', 'paperclip']" size="1x" /> Stood a full year as an intern, helping with intranet
-            web updates and layout refactors. Worked mainly with HTML & CSS and a bit of JavaScript and PHP.
-          </li>
-        </ul>
-        <ul class="work">
-          <li class="title t-lead">Disbots</li>
-          <li class="duration t-secondary"><font-awesome-icon :icon="['fas', 'calendar']" size="1x" /> Ongoing 2021</li>
-          <li class="description">
-            <font-awesome-icon :icon="['fas', 'paperclip']" size="1x" /> Currently working in a small team that develops
-            Discord™ bots using the Discord™ API, NodeJS, TypeScript and MongoDB.
-          </li>
+        <ul class="work" v-for="work in workList" :key="work.id">
+          <li class="title t-lead">{{ work.title }}</li>
+          <li class="duration t-secondary"><font-awesome-icon :icon="['fas', 'calendar']" size="1x" /> {{ work.duration }}</li>
+          <li class="position"><font-awesome-icon :icon="['fas', 'user-tag']" size="1x" /> {{ work.position }}</li>
+          <li class="description"><font-awesome-icon :icon="['fas', 'paperclip']" size="1x" /> {{ work.description }}</li>
         </ul>
       </div>
     </div>
@@ -82,7 +52,52 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+
+import { IEducation, ICourses, IWork } from '@/types/Qualificatios';
+
 export default defineComponent({
+  name: 'Qualifications',
+  setup() {
+    const educationList: IEducation[] = [
+      {
+        id: '1',
+        title: 'High School + Technologist',
+        duration: 'From 2014 to 2017',
+        description: 'Finished high school jointly with a Mechatronics Technologist degree.',
+      },
+      {
+        id: '2',
+        title: 'Computer Systems Analyst College',
+        duration: 'Ongoing 2021',
+        description: 'Currently stuying Computer Systems Analyses in a Brazilian College. Due in 2022.',
+      },
+    ];
+    const courseList: ICourses[] = [
+      {
+        id: '1',
+        title: 'Udemy Courses',
+        description: 'Finished the following courses: Git, Vue, JavaScript, Unity, Blender.',
+      },
+      {
+        id: '2',
+        title: 'Web Designer',
+        description:
+          'Web Designer course at SESC SENAI - Brazil, 2014. Learned basic HTML & CSS, industry workflows, pipelines and improved my time management and team work.',
+      },
+    ];
+    const workList: IWork[] = [
+      {
+        id: '1',
+        title: 'Disbots',
+        duration: 'Ongoing 2021',
+        position: 'Project Lead',
+        description:
+          'Currently working in a small team that develops Discord™ bots using the Discord™ API, NodeJS, TypeScript and MongoDB.',
+      },
+    ];
+
+    return { educationList, courseList, workList };
+  },
   data() {
     const currentQualification = 0;
 
@@ -103,7 +118,6 @@ export default defineComponent({
 </script>
 
 <style>
-/*#region SHOWCASE */
 .showcase {
   height: auto;
   background-color: var(--primary-color);
@@ -151,18 +165,9 @@ export default defineComponent({
 .work .position {
   font-weight: bold;
 }
-/*#endregion SHOWCASE */
-
-/*#region STATS */
-
-/*#endregion STATS */
 
 /* TABLETS AND UNDER */
 @media (max-width: 992px) {
-}
-
-/* SMARTPHONES AND UNDER */
-@media (max-width: 600px) {
   .container.grid {
     grid-template-columns: repeat(1, 1fr);
     gap: 2rem;
@@ -171,5 +176,9 @@ export default defineComponent({
   .selections.grid {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+
+/* SMARTPHONES AND UNDER */
+@media (max-width: 600px) {
 }
 </style>

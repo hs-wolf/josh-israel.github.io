@@ -12,10 +12,16 @@
         Tenacious, curious and always craving for new work experiences.
       </p>
       <div class="social flex my-4">
-        <a href="#" title="LinkedIn"><font-awesome-icon :icon="['fab', 'linkedin']" size="3x" /></a>
-        <a href="#" title="GitHub"><font-awesome-icon :icon="['fab', 'github']" size="3x" /></a>
-        <a href="#" title="Stack Overflow"><font-awesome-icon :icon="['fab', 'stack-overflow']" size="3x" /></a>
-        <a href="#" title="Curriculum Vitae"><font-awesome-icon :icon="['fas', 'file-download']" size="3x" /></a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          v-for="social in socials"
+          :key="social.id"
+          :href="social.link"
+          :title="social.title"
+          :download="social.id === '4' ? 'jose-israel-cv' : null"
+          ><font-awesome-icon :icon="[social.icon[0], social.icon[1]]" size="3x"
+        /></a>
       </div>
       <div class="indicator p-2 flex">
         <font-awesome-icon :icon="['fas', 'mouse']" size="2x" />
@@ -28,14 +34,42 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import ISocials from '@/types/Socials';
+
 export default defineComponent({
-  props: {
-    name: {
-      required: true,
-      type: String,
-    },
+  name: 'Header',
+  setup() {
+    const publicPath: string = process.env.NODE_ENV === 'production' ? '/' : '/';
+    const name = '<Joe>';
+    const socials: ISocials[] = [
+      {
+        id: '1',
+        link: 'https://www.linkedin.com/in/unobraid/',
+        title: 'LinkedIn',
+        icon: ['fab', 'linkedin'],
+      },
+      {
+        id: '2',
+        link: 'https://github.com/joe-israel',
+        title: 'GitHub',
+        icon: ['fab', 'github'],
+      },
+      {
+        id: '3',
+        link: 'https://stackoverflow.com/users/14956131/unobraid',
+        title: 'Stack Overflow',
+        icon: ['fab', 'stack-overflow'],
+      },
+      {
+        id: '4',
+        link: `${publicPath}jose-israel-cv.pdf`,
+        title: 'Curriculum Vitae',
+        icon: ['fas', 'file-download'],
+      },
+    ];
+
+    return { name, socials };
   },
-  methods: {},
 });
 </script>
 

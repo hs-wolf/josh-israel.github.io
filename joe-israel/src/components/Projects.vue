@@ -4,8 +4,6 @@
       <h1 class="t-lg">Recent Projects</h1>
       <p class="t-lead my-2">Check out my latest works.</p>
       <Carousel :slides="slides" />
-      <p class="t-lead my-2">Want to see more?</p>
-      <div class="btn btn-dark my-1 t-lead">See All Projects</div>
     </div>
   </section>
 </template>
@@ -19,7 +17,7 @@ import ICarouselSlide from '@/types/CarouselSlide';
 export default defineComponent({
   name: 'Projects',
   components: { Carousel },
-  data() {
+  setup() {
     const slides: ICarouselSlide[] = [
       {
         id: '1',
@@ -34,27 +32,6 @@ export default defineComponent({
         description:
           'Fadinha - Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique iusto saepe hic cum explicabo? Natus at praesentium voluptates ab tenetur?',
         img: 'https://picsum.photos/seed/picsum1/600/350',
-      },
-      {
-        id: '3',
-        title: 'UManga',
-        description:
-          'UManga - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam magni nemo labore deserunt sit assumenda eius consequatur suscipit earum maxime!',
-        img: 'https://picsum.photos/seed/picsum2/600/350',
-      },
-      {
-        id: '4',
-        title: 'Crypto',
-        description:
-          'Crypto - Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt aut dolor omnis distinctio temporibus numquam tempore voluptatem dignissimos magnam esse.',
-        img: 'https://picsum.photos/seed/picsum3/600/350',
-      },
-      {
-        id: '5',
-        title: 'Magic Field',
-        description:
-          ' Magic Field - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias fugit ipsum quas iure nihil deleniti, molestias expedita dolorum quis omnis.',
-        img: 'https://picsum.photos/seed/picsum4/600/350',
       },
     ];
 
