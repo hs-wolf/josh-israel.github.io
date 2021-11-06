@@ -21,17 +21,17 @@ export default defineComponent({
     const slides: ICarouselSlide[] = [
       {
         id: '1',
-        title: 'Taverna Central',
-        description:
-          'Tavernan Central - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur, cum praesentium! Ipsum quibusdam labore vero, sunt recusandae voluptate quisquam veritatis.',
-        img: 'https://picsum.photos/seed/picsum/600/350',
+        title: 'My Portfolio',
+        description: 'My very first portfolio made with VUE and NodeJS.',
+        img: 'https://neilpatel.com/wp-content/uploads/2017/12/portfolio.jpg',
+        link: 'https://github.com/joe-israel/joe-israel.github.io',
       },
       {
         id: '2',
-        title: 'Fadinha',
-        description:
-          'Fadinha - Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique iusto saepe hic cum explicabo? Natus at praesentium voluptates ab tenetur?',
-        img: 'https://picsum.photos/seed/picsum1/600/350',
+        title: 'Taverna Central',
+        description: 'A Discord Bot made in TypeScript and NodeJS for a Tabletop RPG server.',
+        img: 'https://abilityexperience.org/wp-content/uploads/sites/2/2020/06/what-is-discord-app-1280x720.png',
+        link: 'https://github.com/joe-israel/bot-taverna-typescript',
       },
     ];
 

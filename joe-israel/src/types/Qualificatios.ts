@@ -1,22 +1,22 @@
 interface IEducation {
-  id: String;
-  title: String;
-  duration: String;
-  description: String;
+  id: string;
+  title: string;
+  duration: string;
+  description: string;
 }
 
 interface ICourses {
-  id: String;
-  title: String;
-  description: String;
+  id: string;
+  title: string;
+  description: string;
 }
 
 interface IWork {
-  id: String;
-  title: String;
-  duration: String;
-  position: String;
-  description: String;
+  id: string;
+  title: string;
+  duration: string;
+  position: string;
+  description: string;
 }
 
 export { IEducation, ICourses, IWork };

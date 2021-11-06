@@ -12,7 +12,9 @@
     >
       <div class="slide-container flex">
         <img class="slide-image" :src="slide.img" alt="Project" />
-        <div class="btn slide-title m-2 t-md">{{ slide.title }}</div>
+        <a target="_blank" :href="slide.link"
+          ><div class="btn slide-title m-2 t-md">{{ slide.title }}</div></a
+        >
         <p class="slide-description t-lead">{{ slide.description }}</p>
       </div>
     </transition>
