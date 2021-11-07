@@ -6,7 +6,7 @@
         <p class="t-primary">&nbsp;{{ name }}&nbsp;</p>
         <p>here</p>
       </h1>
-      <img class="my-4" src="@/assets/images/profile.gif" alt="Profile Picture" />
+      <img class="my-4" src="@/assets/images/profile.jpg" alt="Profile Picture" />
       <p class="t-lead">
         I'm a Junior Web Developer.<br />
         Tenacious, curious and always craving for new work experiences.
